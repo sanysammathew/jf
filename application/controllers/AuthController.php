@@ -18,8 +18,13 @@ class AuthController extends Zend_Controller_Action
     {	
 	$this->view->isNew = $isNewlyReg = $this->getParam('reg');
 	$this->view->forgot = $isNewlyReg = $this->getParam('forgot');
+	$this->view->commit = $commit = $this->getParam('commit');
         $users = new Application_Model_DbTable_Users();
-        $form = new Application_Form_LoginForm();
+        $loginForm = new Application_Form_LoginForm();
+        $regForm = new Application_Form_Register();
+        if($commit){
+            
+        }
         $this->view->form = $form;
         $this->view->flogin = $this->_flogin();
         $this->view->glogin = $this->_glogin();
